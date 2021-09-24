@@ -3,8 +3,7 @@ const express = require("express");
 const app = express();
 
 (async () => {
-    //? PASS = D4f'6c9Sh!QeL8C64Bby
-    const url = "mongodb+srv://admin:D4f'6c9Sh!QeL8C64Bby@cluster0.cg79y.mongodb.net/";
+    const url = "mongodb+srv://admin:${{ secrets.pass_db }}@cluster0.cg79y.mongodb.net/";
     const dbName = "ocean_bancodados_24_09_2021";
 
     const client = await MongoClient.connect(url);
@@ -18,7 +17,7 @@ const app = express();
     app.use(express.json());
 
     app.get("/", function (req, res) {
-        res.send("Hello World");
+        res.send("Hello, World!");
     });
 
     // CRUD -> Create, Read (All & Single/byId), Update, Delete
